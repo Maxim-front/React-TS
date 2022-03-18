@@ -1,0 +1,21 @@
+.products_page {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-size: cover;
+  background-image: url(https://storge.pic2.me/c/1360x800/266/5bad5afdc202d.jpg);
+  min-height: 879px;
+
+  .loader {
+    width: 200px;
+    height: 200px;
+    color: gray;
+  }
+
+  .right_components {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

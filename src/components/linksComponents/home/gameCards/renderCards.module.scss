@@ -1,0 +1,138 @@
+.card {
+  width: 180px;
+  height: 250px;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-size: cover;
+  position: relative;
+  perspective: 1000px;
+  background-color: black;
+  border: none;
+  margin-bottom: 20px;
+  margin-right: 19px;
+  cursor: pointer;
+
+  .front,
+  .back {
+    top: 0;
+    text-align: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: 1s;
+    border: 2px solid #8b00ff;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #8b00ff;
+    width: 100%;
+    height: 100%;
+  }
+
+  .back {
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .backText {
+      font-size: 80%;
+    }
+
+    .backButtons {
+      display: flex;
+      justify-content: space-around;
+
+      .buttonSubmit {
+        background-color: rgb(127, 62, 143);
+        border-radius: 7px;
+        border-color: transparent;
+        padding: 4px 7px;
+        text-align: center;
+        transition: all 0.4s ease-in;
+        cursor: pointer;
+
+        &:before {
+          content: "";
+          background-color: aliceblue;
+          border-radius: 50%;
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform: scale(0.001, 0.001);
+        }
+
+        &:focus {
+          outline: 0;
+          color: #fff;
+
+          &:before {
+            animation: effect_dylan 0.8s ease-out;
+          }
+        }
+      }
+    }
+  }
+
+  .icon {
+    width: 176px;
+    height: 180px;
+
+    .images {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px 10px 0 0;
+      object-fit: cover;
+    }
+
+    .platforms {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: black;
+      border-radius: 10px 0 0 0;
+    }
+
+    .platforms_image {
+      width: 20px;
+      padding: 3px;
+    }
+  }
+
+  .iconContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  &:hover .front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .back {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes effect_dylan {
+  50% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+
+  99% {
+    transform: scale(0.001, 0.001);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.001, 0.001);
+    opacity: 1;
+  }
+}
